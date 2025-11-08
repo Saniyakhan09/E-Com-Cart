@@ -55,3 +55,50 @@
   background: #005ccc;
 }
 
+@media (max-width: 992px) {
+  .cart {
+    padding: 25px 25px;
+    max-width: 90%;
+  }
+
+  .cart-item span {
+    font-size: 15px;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cart {
+    padding: 20px;
+    max-width: 100%;
+    border-radius: 0;
+    border-top: none;
+  }
+
+  .cart h2 {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .cart-item span {
+    font-size: 14px;
+  }
+
+  .checkout-btn {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+    padding: 10px;
+  }
+}
