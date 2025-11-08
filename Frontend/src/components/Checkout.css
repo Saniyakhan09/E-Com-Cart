@@ -1,0 +1,142 @@
+.checkout-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 60px 80px;
+  background: #f6f8fb;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  color: #222;
+}
+
+.checkout-left {
+  width: 50%;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e8ec;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  margin-bottom: 18px;
+  font-size: 15px;
+  background: #f3f6fc;
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #0070f3;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.15);
+}
+
+.submit-btn {
+  margin-top: 5px;
+  padding: 12px 28px;
+  background: #13473B;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #134735;
+  transform: translateY(-1px);
+}
+
+.checkout-right {
+  width: 38%;
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid #e5e8ec;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.summary-box {
+  color: #000;
+}
+
+.summary-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.summary-line {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.summary-box ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.summary-box li {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.total-box {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-top: 25px;
+  border-top: 1px solid #e5e8ec;
+  padding-top: 15px;
+}
+
+.total-amount {
+  font-weight: 600;
+  font-size: 20px;
+  color: #111;
+}
+
+.summary-box p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.summary-box p strong {
+  color: #000;
+}
+
+@media (max-width: 900px) {
+  .checkout-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .checkout-left,
+  .checkout-right {
+    width: 90%;
+    margin-bottom: 30px;
+  }
+}
