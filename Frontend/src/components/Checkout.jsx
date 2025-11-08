@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Checkout.css";
 
-function Checkout({ onSubmit }) {
+function Checkout({ onSubmit, cart, receipt }) {
   const [form, setForm] = useState({ name: "", email: "" });
-  const [receipt, setReceipt] = useState(null);
+  const [localReceipt, setLocalReceipt] = useState(receipt);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -12,19 +12,23 @@ function Checkout({ onSubmit }) {
     e.preventDefault();
 
     const newReceipt = {
-      items: [
-        { name: "Poster Mockup", price: 24, quantity: 2 },
-        { name: "Frame Add-on", price: 10, quantity: 1 },
-      ],
+      items: cart.map((item) => ({
+        name: item.productId?.name,
+        price: item.productId?.price,
+        quantity: item.quantity,
+      })),
       timestamp: Date.now(),
     };
 
-    setReceipt(newReceipt);
-    onSubmit?.(form);
+    setLocalReceipt(newReceipt);
+    onSubmit?.({ ...form, cart }); 
   };
 
-  const total = receipt
-    ? receipt.items.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const total = localReceipt
+    ? localReceipt.items.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      )
     : 0;
 
   return (
@@ -55,7 +59,7 @@ function Checkout({ onSubmit }) {
 
       {/* RIGHT SIDE */}
       <div className="checkout-right">
-        {!receipt ? (
+        {!localReceipt ? (
           <div className="summary-box">
             <h3 className="summary-title">Order Summary</h3>
             <p className="summary-line">
@@ -71,7 +75,7 @@ function Checkout({ onSubmit }) {
             <h3 className="summary-title">Receipt</h3>
 
             <ul>
-              {receipt.items.map((item, index) => (
+              {localReceipt.items.map((item, index) => (
                 <li key={index} style={{ marginBottom: "8px" }}>
                   {item.name} × {item.quantity} = ${item.price * item.quantity}
                 </li>
@@ -84,7 +88,7 @@ function Checkout({ onSubmit }) {
             </div>
 
             <p style={{ marginTop: "15px", color: "#666" }}>
-              Time: {new Date(receipt.timestamp).toLocaleString()}
+              Time: {new Date(localReceipt.timestamp).toLocaleString()}
             </p>
             <p style={{ marginTop: "10px" }}>
               Thank you, <strong>{form.name}</strong>!

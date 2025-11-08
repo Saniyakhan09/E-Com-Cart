@@ -82,7 +82,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1 className="gradient-text">Vibe Commerce - Mock E-Com Cart</h1>
+      <h1 className="gradient-text">Vibe Commerce — Mock E-Com Cart</h1>
 
       {!showCheckout ? (
         <>
@@ -95,7 +95,7 @@ function App() {
 />
         </>
       ) : (
-        <Checkout onSubmit={handleCheckout} receipt={receipt} />
+        <Checkout onSubmit={handleCheckout} receipt={receipt} cart={cart} />
       )}
     </div>
   );
