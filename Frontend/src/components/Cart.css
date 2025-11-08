@@ -7,17 +7,14 @@
   transition: top 0.6s ease-in-out;
 }
 
-/* When active → slide down */
 .cart-container.active {
   top: 0;
 }
 
-/* === Cart Box === */
  .cart {
-  background-color: #141414;
+  background-color:#000000;
   padding: 30px 40px;
   border-top: 1px solid #222;
-  margin-top: 40px;
 }
 
 
